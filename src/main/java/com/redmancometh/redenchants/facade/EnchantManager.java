@@ -9,7 +9,6 @@ import com.redmancometh.redenchants.abstraction.composites.CustomEquipEnchant;
 import com.redmancometh.redenchants.enchantments.equip.armor.Haste;
 import com.redmancometh.redenchants.enchantments.equip.armor.Jump;
 import com.redmancometh.redenchants.enchantments.equip.armor.Speed;
-import com.redmancometh.redenchants.enchants.mining.Explosion;
 
 import java.lang.reflect.Field;
 import java.util.Iterator;
@@ -55,7 +54,6 @@ public class EnchantManager implements Iterable<CustomEnchant> //Iterable for th
             }
             try
             {
-                enchantList.add(new Explosion(71, "BLASTING"));
                 enchantList.add(new Haste(72, "HASTE"));
                 enchantList.add(new Jump(73, "JUMP"));
                 enchantList.add(new Speed(74, "SPEED"));
