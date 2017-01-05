@@ -1,19 +1,17 @@
 package com.redmancometh.redenchants.abstraction;
 
+import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.inventory.ItemStack;
 
-import net.minecraft.server.v1_8_R3.Enchantment;
-import net.minecraft.server.v1_8_R3.EnchantmentSlotType;
-import net.minecraft.server.v1_8_R3.MinecraftKey;
-
-public abstract class CustomEnchant extends Enchantment
+public abstract class CustomBukkitEnchantment extends EnchantmentWrapper
 {
-    protected String name;
-    protected Enchantment bukkitEnch;
 
-    public CustomEnchant(int id, String name, EnchantmentSlotType slotType, int maxLevel)
+    protected String name;
+
+    public CustomBukkitEnchantment(int id, String name)
     {
-        super(id, new MinecraftKey(name.replace(" ", "_")), id, slotType);
+        super(id);
         this.name = name;
     }
 
@@ -46,7 +44,7 @@ public abstract class CustomEnchant extends Enchantment
         return level + "";
     }
 
-    public abstract EnchantmentSlotType getItemTarget();
+    public abstract EnchantmentTarget getItemTarget();
 
     public abstract int getMaxLevel();
 

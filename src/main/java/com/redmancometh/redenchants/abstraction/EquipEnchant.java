@@ -2,7 +2,9 @@ package com.redmancometh.redenchants.abstraction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -17,21 +19,16 @@ public interface EquipEnchant
 {
     public abstract String getMetaName();
 
-    public default List<Integer> getSlots(Player p)
-    {
-        //don't force implementation
-        //use getEquippedInSlot which calls this by default
-        //leave this as default and override getEquippedInSlot 
-        //this is an armor enchant as default
-        return new ArrayList(Arrays.asList(36, 37, 38, 39));
-    }
+    Set slots = new HashSet(Arrays.asList(1, 36, 37, 38, 39));
+
+    public abstract Set<Integer> getSlots();
 
     public abstract Enchantment getEnchant();
 
     public default List<ItemStack> getEquippedInSlot(Player p)
     {
         List<ItemStack> itemList = new ArrayList();
-        getSlots(p).forEach((slot) -> itemList.add(p.getInventory().getItem((slot))));
+        getSlots().forEach((slot) -> itemList.add(p.getInventory().getItem((slot))));
         return itemList;
     }
 
@@ -39,7 +36,6 @@ public interface EquipEnchant
     {
         for (ItemStack item : getEquippedInSlot(p))
         {
-            
             if (item != null)
             {
                 if (item.containsEnchantment(getEnchant()))
@@ -51,7 +47,7 @@ public interface EquipEnchant
         return new Pair(false, null);
     }
 
-    public abstract void tickItem(Player p, ItemStack equipped);
+    public abstract void tickItem(Player p, int level);
 
     public default void applyItemEnchants(Player player, ItemStack item)
     {
@@ -67,10 +63,10 @@ public interface EquipEnchant
             {
                 if (equipEnchant.isEffectApplied(player))
                 {
-                    equipEnchant.tickItem(player, equipResult.getValue());
+                    equipEnchant.tickItem(player, equipResult.getValue().getEnchantmentLevel(getEnchant()));
                     continue;
                 }
-                equipEnchant.onTickApply(player, equipResult.getValue());
+                equipEnchant.onTickApply(player, item.getEnchantmentLevel(getEnchant()));
                 continue;
             }
             if (equipEnchant.isTickApplied(player))
@@ -80,10 +76,10 @@ public interface EquipEnchant
         }
     }
 
-    public default void onTickApply(Player p, ItemStack equipped)
+    public default void onTickApply(Player p, int level)
     {
         setEquipMeta(p);
-        tickItem(p, equipped);
+        tickItem(p, level);
     }
 
     public abstract boolean isEffectApplied(Player p);

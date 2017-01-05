@@ -3,3 +3,7 @@ name: RedEnchants
 version: 1.0
 description: Custom enchants
 author: Redmancometh
+commands:
+   cench:
+      description: Enchant a weapon.
+      usage: /cench [enchantment name]

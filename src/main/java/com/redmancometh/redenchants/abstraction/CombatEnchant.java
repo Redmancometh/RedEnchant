@@ -5,7 +5,14 @@ import org.bukkit.entity.Player;
 
 public interface CombatEnchant
 {
-    public abstract void strikeTarget(Player attacker, LivingEntity e);
+    public default void strikeTarget(Player attacker, LivingEntity e, int level)
+    {
+        if (e instanceof Player)
+        {
+            strikePlayer(attacker, (Player) e, level);
+            return;
+        }
+    }
 
-    public abstract void strikePlayer(Player attacker, Player attacked);
+    public abstract boolean strikePlayer(Player attacker, Player attacked, int level);
 }

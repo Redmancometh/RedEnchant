@@ -27,7 +27,7 @@ import com.google.common.cache.LoadingCache;
 import com.redmancometh.redenchants.RedEnchants;
 import com.redmancometh.redenchants.Settings;
 import com.redmancometh.redenchants.abstraction.CustomEnchant;
-import com.redmancometh.redenchants.facade.EnchantManager;
+import com.redmancometh.redenchants.mediator.EnchantManager;
 
 public class SignListeners implements Listener
 {

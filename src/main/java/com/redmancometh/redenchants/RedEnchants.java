@@ -2,9 +2,10 @@ package com.redmancometh.redenchants;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.redmancometh.redenchants.facade.EnchantManager;
+import com.redmancometh.redenchants.commands.AdminEnchantCommand;
 import com.redmancometh.redenchants.listeners.EnchantListeners;
 import com.redmancometh.redenchants.listeners.SignListeners;
+import com.redmancometh.redenchants.mediator.EnchantManager;
 
 public class RedEnchants extends JavaPlugin
 {
@@ -20,7 +21,14 @@ public class RedEnchants extends JavaPlugin
         enchantManager = getManager();
         getServer().getPluginManager().registerEvents(new EnchantListeners(), this);
         getServer().getPluginManager().registerEvents(new SignListeners(), this);
+        getCommand("cench").setExecutor(new AdminEnchantCommand());
+    }
 
+    @Override
+    public void onDisable()
+    {
+        super.onDisable();
+        enchantManager.unLoadEnchantments();
     }
 
     public static RedEnchants getInstance()
