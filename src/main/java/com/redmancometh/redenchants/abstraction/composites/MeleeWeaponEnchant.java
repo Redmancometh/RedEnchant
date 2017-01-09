@@ -1,22 +1,22 @@
 package com.redmancometh.redenchants.abstraction.composites;
 
-import org.bukkit.enchantments.EnchantmentTarget;
-
 import com.redmancometh.redenchants.abstraction.CombatEnchant;
 import com.redmancometh.redenchants.abstraction.CustomEnchant;
+
+import net.minecraft.server.v1_8_R3.EnchantmentSlotType;
 
 public abstract class MeleeWeaponEnchant extends CustomEnchant implements CombatEnchant
 {
 
-    public MeleeWeaponEnchant(int id, String name)
+    public MeleeWeaponEnchant(int id, String name, int maxLevel)
     {
-        super(id, name);
+        super(id, name, EnchantmentSlotType.WEAPON, maxLevel);
     }
 
     @Override
-    public EnchantmentTarget getItemTarget()
+    public EnchantmentSlotType getItemTarget()
     {
-        return EnchantmentTarget.WEAPON;
+        return EnchantmentSlotType.WEAPON;
     }
 
 }

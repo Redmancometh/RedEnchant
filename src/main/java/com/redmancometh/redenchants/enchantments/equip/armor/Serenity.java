@@ -9,7 +9,7 @@ public class Serenity extends CustomArmorEnchant
 
     public Serenity()
     {
-        super(83, "SERENITY");
+        super(85, "SERENITY", 1);
         // TODO Auto-generated constructor stub
     }
 

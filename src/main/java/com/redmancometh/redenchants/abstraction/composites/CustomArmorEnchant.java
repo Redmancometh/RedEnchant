@@ -3,8 +3,6 @@ package com.redmancometh.redenchants.abstraction.composites;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 
@@ -16,9 +14,9 @@ public abstract class CustomArmorEnchant extends CustomEnchant
 {
     private HashSet slots = new HashSet(Arrays.asList(36, 37, 38, 39));
 
-    public CustomArmorEnchant(int id, String name)
+    public CustomArmorEnchant(int id, String name, int maxLevel)
     {
-        super(id, name, this.bukkitEnch);
+        super(id, name, EnchantmentSlotType.ARMOR, id);
     }
 
     public Set<Integer> getSlots()

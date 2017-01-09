@@ -18,7 +18,7 @@ public class Runner extends EquippedArmorEnchant
 
     public Runner()
     {
-        super(73, "RUNNER");
+        super(84, "RUNNER", 6);
     }
 
     @Override
@@ -50,6 +50,12 @@ public class Runner extends EquippedArmorEnchant
     {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    @Override
+    public Enchantment getEnchant()
+    {
+        return bukkitEnch;
     }
 
 }

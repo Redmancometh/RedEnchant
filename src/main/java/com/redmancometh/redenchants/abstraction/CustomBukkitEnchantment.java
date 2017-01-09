@@ -1,17 +1,18 @@
 package com.redmancometh.redenchants.abstraction;
 
-import org.bukkit.enchantments.EnchantmentTarget;
-import org.bukkit.enchantments.EnchantmentWrapper;
+import org.bukkit.craftbukkit.v1_8_R3.enchantments.CraftEnchantment;
 import org.bukkit.inventory.ItemStack;
 
-public abstract class CustomBukkitEnchantment extends EnchantmentWrapper
+import net.minecraft.server.v1_8_R3.Enchantment;
+
+public class CustomBukkitEnchantment extends CraftEnchantment
 {
 
     protected String name;
-
-    public CustomBukkitEnchantment(int id, String name)
+    
+    public CustomBukkitEnchantment(Enchantment ench, String name)
     {
-        super(id);
+        super(ench);
         this.name = name;
     }
 
@@ -44,9 +45,12 @@ public abstract class CustomBukkitEnchantment extends EnchantmentWrapper
         return level + "";
     }
 
-    public abstract EnchantmentTarget getItemTarget();
-
-    public abstract int getMaxLevel();
+    @Override
+    public String getName()
+    {
+        System.out.println(CraftEnchantment.getRaw(this) + " CALLED BUKKIT NAME " + name);
+        return name;
+    }
 
     @Override
     public int getStartLevel()

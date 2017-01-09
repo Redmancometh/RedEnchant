@@ -11,7 +11,7 @@ public class WaterPurge extends EquippedArmorEnchant
 {
     public WaterPurge()
     {
-        super(77, "WATERPURGE");
+        super(86, "WATERPURGE", 1);
     }
 
     @Override
@@ -48,6 +48,12 @@ public class WaterPurge extends EquippedArmorEnchant
     public boolean onStruck(Player attacked, Player attacker, int level)
     {
         return false;
+    }
+
+    @Override
+    public Enchantment getEnchant()
+    {
+        return bukkitEnch;
     }
 
 }

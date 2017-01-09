@@ -5,9 +5,9 @@ import com.redmancometh.redenchants.abstraction.EquipEnchant;
 public abstract class EquippedArmorEnchant extends CustomArmorEnchant implements EquipEnchant
 {
 
-    public EquippedArmorEnchant(int id, String name)
+    public EquippedArmorEnchant(int id, String name, int maxLevel)
     {
-        super(id, name);
+        super(id, name, maxLevel);
     }
 
 }

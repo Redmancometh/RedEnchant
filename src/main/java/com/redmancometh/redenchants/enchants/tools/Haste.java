@@ -9,7 +9,26 @@ public class Haste extends CustomToolEnchant
 
     public Haste()
     {
-        super(71, "HASTE");
+        super(98, "HASTE", 5);
+    }
+
+    @Override
+    public String a()
+    {
+        return super.a();
+    }
+
+    @Override
+    public String d(int i)
+    {
+        System.out.println("D");
+        return super.d(i);
+    }
+
+    @Override
+    public String getName()
+    {
+        return super.getName();
     }
 
     @Override

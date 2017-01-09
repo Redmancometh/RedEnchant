@@ -6,13 +6,11 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.redmancometh.redenchants.abstraction.composites.EquippedArmorEnchant;
 
-import net.minecraft.server.v1_8_R3.Enchantment;
-
 public class Jumper extends EquippedArmorEnchant
 {
     public Jumper()
     {
-        super(76, "JUMPER");
+        super(83, "JUMPER", 3);
     }
 
     @Override
@@ -55,8 +53,7 @@ public class Jumper extends EquippedArmorEnchant
     @Override
     public org.bukkit.enchantments.Enchantment getEnchant()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return bukkitEnch;
     }
 
 }

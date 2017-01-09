@@ -7,7 +7,7 @@ public class SlowPoke extends RangedWeaponEnchant
 
     public SlowPoke()
     {
-        super(89, "SLOWPOKE");
+        super(95, "SLOWPOKE", 2);
     }
 
     @Override

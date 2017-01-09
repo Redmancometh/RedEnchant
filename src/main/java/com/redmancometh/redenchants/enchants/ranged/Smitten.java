@@ -6,7 +6,7 @@ public class Smitten extends RangedWeaponEnchant
 {
     public Smitten()
     {
-        super(90, "SMITTEN");
+        super(96, "SMITTEN", 2);
     }
 
     @Override

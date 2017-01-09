@@ -10,7 +10,7 @@ public class AdamsApple extends EquippedArmorEnchant
 
     public AdamsApple()
     {
-        super(78, "ADAMSAPPLE");
+        super(77, "ADAMSAPPLE", 2);
     }
 
     @Override

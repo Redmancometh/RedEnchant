@@ -28,7 +28,7 @@ public class RedEnchants extends JavaPlugin
     public void onDisable()
     {
         super.onDisable();
-        enchantManager.unLoadEnchantments();
+        //enchantManager.unLoadEnchantments();
     }
 
     public static RedEnchants getInstance()

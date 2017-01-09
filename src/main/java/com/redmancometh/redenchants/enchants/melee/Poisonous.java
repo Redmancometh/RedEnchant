@@ -15,7 +15,7 @@ public class Poisonous extends MeleeWeaponEnchant
 
     public Poisonous()
     {
-        super(75, "POISONOUS");
+        super(89, "POISONOUS", 3);
     }
 
     @Override

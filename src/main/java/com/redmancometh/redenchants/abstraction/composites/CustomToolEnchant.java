@@ -1,21 +1,21 @@
 package com.redmancometh.redenchants.abstraction.composites;
 
-import org.bukkit.enchantments.EnchantmentTarget;
-
 import com.redmancometh.redenchants.abstraction.CustomEnchant;
 import com.redmancometh.redenchants.abstraction.ToolEnchant;
 
+import net.minecraft.server.v1_8_R3.EnchantmentSlotType;
+
 public abstract class CustomToolEnchant extends CustomEnchant implements ToolEnchant
 {
-    public CustomToolEnchant(int id, String name)
+    public CustomToolEnchant(int id, String name, int maxLevel)
     {
-        super(id, name);
+        super(id, name, EnchantmentSlotType.DIGGER, maxLevel);
     }
 
     @Override
-    public EnchantmentTarget getItemTarget()
+    public EnchantmentSlotType getItemTarget()
     {
-        return EnchantmentTarget.TOOL;
+        return EnchantmentSlotType.DIGGER;
     }
 
 }

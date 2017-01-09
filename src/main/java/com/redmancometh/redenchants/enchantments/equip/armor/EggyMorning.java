@@ -9,7 +9,7 @@ public class EggyMorning extends CustomArmorEnchant
 
     public EggyMorning()
     {
-        super(77, "EGGYMORNING");
+        super(79, "EGGYMORNING", 2);
     }
 
     @Override

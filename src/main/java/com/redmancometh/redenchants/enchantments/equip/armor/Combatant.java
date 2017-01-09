@@ -9,7 +9,7 @@ public class Combatant extends CustomArmorEnchant
 
     public Combatant()
     {
-        super(79, "COMBATANT");
+        super(78, "COMBATANT", 2);
         // TODO Auto-generated constructor stub
     }
 

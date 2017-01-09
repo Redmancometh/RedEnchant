@@ -10,7 +10,7 @@ public class Daze extends MeleeWeaponEnchant
 {
     public Daze()
     {
-        super(72, "DAZE");
+        super(87, "DAZE", 3);
     }
 
     @Override

@@ -9,7 +9,7 @@ public class DemonBreaker extends CustomToolEnchant
 
     public DemonBreaker(int id, String name)
     {
-        super(id, name);
+        super(97, "DEMONBREAKER", 3);
     }
 
     @Override

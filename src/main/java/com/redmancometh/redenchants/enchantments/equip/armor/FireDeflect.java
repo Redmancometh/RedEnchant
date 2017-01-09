@@ -9,7 +9,7 @@ public class FireDeflect extends CustomArmorEnchant
 
     public FireDeflect()
     {
-        super(81, "FIREDEFLECT");
+        super(81, "FIREDEFLECT", 1);
     }
 
     @Override

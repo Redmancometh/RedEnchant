@@ -1,20 +1,20 @@
 package com.redmancometh.redenchants.abstraction.composites;
 
-import org.bukkit.enchantments.EnchantmentTarget;
-
 import com.redmancometh.redenchants.abstraction.CustomEnchant;
+
+import net.minecraft.server.v1_8_R3.EnchantmentSlotType;
 
 public abstract class RangedWeaponEnchant extends CustomEnchant
 {
 
-    public RangedWeaponEnchant(int id, String name)
+    public RangedWeaponEnchant(int id, String name, int maxLevel)
     {
-        super(id, name);
+        super(id, name, EnchantmentSlotType.BOW, maxLevel);
     }
 
     @Override
-    public EnchantmentTarget getItemTarget()
+    public EnchantmentSlotType getItemTarget()
     {
-        return EnchantmentTarget.BOW;
+        return EnchantmentSlotType.BOW;
     }
 }

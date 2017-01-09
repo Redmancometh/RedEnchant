@@ -9,7 +9,7 @@ public class FallenDeath extends CustomArmorEnchant
 
     public FallenDeath()
     {
-        super(80, "FALLENDEATH");
+        super(80, "FALLENDEATH", 2);
     }
 
     @Override

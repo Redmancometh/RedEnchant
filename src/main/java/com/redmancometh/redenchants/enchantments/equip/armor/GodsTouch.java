@@ -9,7 +9,7 @@ public class GodsTouch extends CustomArmorEnchant
 
     public GodsTouch()
     {
-        super(82, "GODSTOUCH");
+        super(82, "GODSTOUCH", 1);
     }
 
     @Override

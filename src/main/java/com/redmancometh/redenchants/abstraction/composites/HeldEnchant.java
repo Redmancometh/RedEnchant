@@ -2,16 +2,16 @@ package com.redmancometh.redenchants.abstraction.composites;
 
 import java.util.Arrays;
 import java.util.List;
-
-import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import net.minecraft.server.v1_8_R3.EnchantmentSlotType;
+
 public abstract class HeldEnchant extends CustomEquipEnchant
 {
-    public HeldEnchant(int id, String name)
+    public HeldEnchant(int id, String name, EnchantmentSlotType slotType, int maxLevel)
     {
-        super(id, name);
+        super(id, name, slotType, maxLevel);
     }
 
     @Override
@@ -22,8 +22,8 @@ public abstract class HeldEnchant extends CustomEquipEnchant
     }
 
     @Override
-    public EnchantmentTarget getItemTarget()
+    public EnchantmentSlotType getItemTarget()
     {
-        return EnchantmentTarget.ALL;
+        return EnchantmentSlotType.ALL;
     }
 }

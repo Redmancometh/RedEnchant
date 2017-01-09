@@ -3,20 +3,15 @@ package com.redmancometh.redenchants.listeners;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.block.Sign;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -24,10 +19,8 @@ import com.google.common.base.CaseFormat;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.redmancometh.redenchants.RedEnchants;
 import com.redmancometh.redenchants.Settings;
-import com.redmancometh.redenchants.abstraction.CustomEnchant;
-import com.redmancometh.redenchants.mediator.EnchantManager;
+import com.redmancometh.redenchants.abstraction.CustomBukkitEnchantment;
 
 public class SignListeners implements Listener
 {
@@ -41,6 +34,7 @@ public class SignListeners implements Listener
         }
     });
 
+    @SuppressWarnings("unused")
     private void msg(Player player, String message)
     {
         player.sendMessage(Settings.Messages.PREFIX.val() + " " + ChatColor.translateAlternateColorCodes('&', message));
@@ -61,9 +55,10 @@ public class SignListeners implements Listener
         }
     }
 
+    @SuppressWarnings("unused")
     private void addCustomLore(ItemStack item, Enchantment enchantment, int level)
     {
-        if (!(enchantment instanceof CustomEnchant))
+        if (!(enchantment instanceof CustomBukkitEnchantment))
         {
             return;
         }
@@ -79,7 +74,7 @@ public class SignListeners implements Listener
         item.setItemMeta(meta);
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    /* @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onSignClick(PlayerInteractEvent e)
     {
         if (e.getAction() != Action.RIGHT_CLICK_BLOCK)
@@ -103,7 +98,7 @@ public class SignListeners implements Listener
         {
             msg(e.getPlayer(), Settings.Messages.PURCHASE_FAILURE.val());
             return;
-        }*/
+        }
         if (e.getItem() == null || e.getItem().getType() == Material.AIR)
         {
             msg(e.getPlayer(), Settings.Messages.PURCHASE_NO_ITEM.val());
@@ -138,7 +133,7 @@ public class SignListeners implements Listener
             e1.printStackTrace();
         }
     }
-
+    */
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onSignChange(SignChangeEvent e)
     {

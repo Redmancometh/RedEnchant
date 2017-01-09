@@ -9,7 +9,7 @@ public class VolatileExplosive extends CustomToolEnchant
 
     public VolatileExplosive(int id, String name)
     {
-        super(id, name);
+        super(99, name, 3);
         // TODO Auto-generated constructor stub
     }
 

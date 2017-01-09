@@ -7,7 +7,7 @@ public class Shotgun extends RangedWeaponEnchant
 
     public Shotgun()
     {
-        super(88, "SHOTGUN");
+        super(94, "SHOTGUN", 2);
     }
 
     @Override

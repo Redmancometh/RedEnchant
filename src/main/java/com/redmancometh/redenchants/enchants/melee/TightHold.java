@@ -11,7 +11,7 @@ public class TightHold extends MeleeWeaponEnchant
 
     public TightHold()
     {
-        super(85, "TIGHTHOLD");
+        super(91, "TIGHTHOLD", 3);
     }
 
     @Override

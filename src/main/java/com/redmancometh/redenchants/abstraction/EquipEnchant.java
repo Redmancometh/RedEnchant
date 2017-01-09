@@ -51,7 +51,7 @@ public interface EquipEnchant
 
     public default void applyItemEnchants(Player player, ItemStack item)
     {
-        for (CustomEnchant customEnchant : RedEnchants.getInstance().getManager().getEnchants())
+        for (CustomEnchant customEnchant : RedEnchants.getInstance().getManager().getNMSCustomEnchants())
         {
             if (!(customEnchant instanceof EquipEnchant))
             {

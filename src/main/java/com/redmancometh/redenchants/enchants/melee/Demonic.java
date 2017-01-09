@@ -22,7 +22,7 @@ public class Demonic extends MeleeWeaponEnchant
 
     public Demonic()
     {
-        super(83, "DEMONIC");
+        super(88, "DEMONIC", 3);
     }
 
     @Override

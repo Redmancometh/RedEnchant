@@ -1,18 +1,18 @@
 package com.redmancometh.redenchants.abstraction.composites;
 
-import org.bukkit.enchantments.EnchantmentTarget;
+import net.minecraft.server.v1_8_R3.EnchantmentSlotType;
 
 public abstract class HeldWeaponEnchant extends HeldEnchant
 {
 
-    public HeldWeaponEnchant(int id, String name)
+    public HeldWeaponEnchant(int id, String name, EnchantmentSlotType slotType, int maxLevel)
     {
-        super(id, name);
+        super(id, name, slotType, maxLevel);
     }
 
     @Override
-    public EnchantmentTarget getItemTarget()
+    public EnchantmentSlotType getItemTarget()
     {
-        return EnchantmentTarget.WEAPON;
+        return EnchantmentSlotType.WEAPON;
     }
 }

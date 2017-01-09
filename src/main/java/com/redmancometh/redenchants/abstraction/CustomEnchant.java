@@ -9,12 +9,52 @@ import net.minecraft.server.v1_8_R3.MinecraftKey;
 public abstract class CustomEnchant extends Enchantment
 {
     protected String name;
-    protected Enchantment bukkitEnch;
+    protected CustomBukkitEnchantment bukkitEnch;
 
     public CustomEnchant(int id, String name, EnchantmentSlotType slotType, int maxLevel)
     {
         super(id, new MinecraftKey(name.replace(" ", "_")), id, slotType);
+        this.bukkitEnch = new CustomBukkitEnchantment(this, name);
         this.name = name;
+        super.c(name);
+    }
+
+    @Override
+    public String a()
+    {
+        System.out.println("A STRING!");
+        return super.a();
+    }
+
+    public int a(int i)
+    {
+        System.out.println("A");
+        return 100 * i;
+    }
+
+    public int b(int i)
+    {
+        System.out.println("B");
+        return this.a(i) + 300;
+    }
+
+    @Override
+    public String d(int i)
+    {
+        System.out.println("D!");
+        return super.d(i);
+    }
+
+    public org.bukkit.enchantments.Enchantment getBukkitEnchantment()
+    {
+        System.out.println("GET BUKKIT ENCH!");
+        return this.bukkitEnch;
+    }
+
+    public String getName()
+    {
+        System.out.println(name + " CALLED NAME");
+        return name;
     }
 
     public String getNumeralLevel(int level)

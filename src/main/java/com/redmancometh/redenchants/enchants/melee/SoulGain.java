@@ -9,7 +9,7 @@ public class SoulGain extends MeleeWeaponEnchant
 
     public SoulGain()
     {
-        super(84, "SOULGAIN");
+        super(90, "SOULGAIN", 3);
     }
 
     @Override

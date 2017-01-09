@@ -7,7 +7,7 @@ public class ColdSoul extends RangedWeaponEnchant
 
     public ColdSoul()
     {
-        super(87, "COLDSOUL");
+        super(93, "COLDSOUL", 2);
     }
 
     @Override

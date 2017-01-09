@@ -11,7 +11,7 @@ public class WitheredBlade extends MeleeWeaponEnchant
 
     public WitheredBlade()
     {
-        super(86, "WITHEREDBLADE");
+        super(92, "WITHEREDBLADE", 3);
     }
 
     @Override

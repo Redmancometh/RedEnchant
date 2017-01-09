@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>RedEnchants</artifactId>
 	<!-- Property Configuration -->
@@ -44,9 +45,28 @@
 					<outputDirectory>C:\Users\Redmancometh\Desktop\mazeupdate\plugins</outputDirectory>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<artifactSet>
+								<includes>
+									<include>org.javassist:javassist:*</include>
+								</includes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
 	<!-- Dependency Configuration -->
 	<dependencies>
 		<dependency>
@@ -59,10 +79,16 @@
 			<artifactId>AutoSell</artifactId>
 			<version>1.8.8</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.redmancometh</groupId>
 			<artifactId>RedEnchants</artifactId>
 			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.21.0-GA</version>
 		</dependency>
 	</dependencies>
 	<!-- Repository Configuration -->
@@ -76,7 +102,6 @@
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 	</repositories>
-
 	<groupId>com.redmancometh</groupId>
 	<version>1.0</version>
 </project>

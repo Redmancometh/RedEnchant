@@ -27,12 +27,14 @@ C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redencha
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\listeners\SignListeners.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\composites\RangedWeaponEnchant.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\enchantments\equip\armor\Serenity.java
+C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\CustomCraftEnchant.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\EquipEnchant.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\commands\AdminEnchantCommand.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\listeners\EnchantListeners.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\composites\EquippedMeleeWeaponEnchant.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\composites\EquippedBowEnchant.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\composites\HeldToolEnchant.java
+C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\CustomBukkitEnchantment.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\enchantments\equip\armor\AdamsApple.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\abstraction\CharmEnchant.java
 C:\Users\Redmancometh\arkham\RedEnchants\src\main\java\com\redmancometh\redenchants\enchantments\equip\armor\GodsTouch.java

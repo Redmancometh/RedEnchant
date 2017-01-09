@@ -11,6 +11,7 @@ public class MaterialInfo
     {
         this.material = material;
         this.multiplier = multiplier;
+        
     }
 
     public Material getMaterial()

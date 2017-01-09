@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.LivingEntity;
@@ -15,11 +14,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.enchantment.EnchantItemEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.redmancometh.redenchants.RedEnchants;
 import com.redmancometh.redenchants.abstraction.CombatEnchant;
+import com.redmancometh.redenchants.abstraction.CustomBukkitEnchantment;
 import com.redmancometh.redenchants.abstraction.CustomEnchant;
 import com.redmancometh.redenchants.abstraction.EquipEnchant;
 import com.redmancometh.redenchants.abstraction.ToolEnchant;
@@ -38,26 +39,35 @@ public class EnchantListeners implements Listener
     }
 
     @EventHandler
+    public void onPrepare(EnchantItemEvent e)
+    {
+        e.getEnchantsToAdd().forEach((ench, level) ->
+        {
+            System.out.println(ench + " TO ENCH " + level);
+        });
+    }
+
+    @EventHandler
     public void onStruckBy(EntityDamageByEntityEvent e)
     {
         if (e.getEntity() instanceof Player)
         {
             Player p = (Player) e.getEntity();
             Map<CustomArmorEnchant, Integer> enchantsFound = null;
-            enchLoop: for (CustomEnchant ench : RedEnchants.getInstance().getManager())
+            enchLoop: for (CustomEnchant ench : RedEnchants.getInstance().getManager().getNMSCustomEnchants())
             {
                 if (ench instanceof CustomArmorEnchant)
                 {
                     for (int x = 36; x <= 39; x++)
                     {
                         ItemStack i = p.getInventory().getItem(x);
-                        if (i != null && i.getType() != Material.AIR)
+                        if (i != null && i.getType() != Material.AIR && i.containsEnchantment(ench.getBukkitEnchantment()))
                         {
-                            net.minecraft.server.v1_8_R3.ItemStack nItem = CraftItemStack.asNMSCopy(i);
                             if (enchantsFound == null)
                             {
                                 enchantsFound = new HashMap();
                             }
+                            int level = i.getEnchantmentLevel(ench.getBukkitEnchantment());
                             enchantsFound.put((CustomArmorEnchant) ench, level);
                             if (level >= ench.getMaxLevel())
                             {
@@ -141,7 +151,7 @@ public class EnchantListeners implements Listener
     public static void tickPlayer(Player player)
     {
         Map<String, Integer> enchantsFound = null;
-        enchLoop: for (CustomEnchant ench : RedEnchants.getInstance().getManager())
+        enchLoop: for (CustomBukkitEnchantment ench : RedEnchants.getInstance().getManager().getBukkitCustomEnchants())
         {
             if (ench instanceof EquipEnchant)
             {
