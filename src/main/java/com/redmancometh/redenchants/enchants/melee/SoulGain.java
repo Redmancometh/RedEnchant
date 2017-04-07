@@ -9,7 +9,7 @@ public class SoulGain extends MeleeWeaponEnchant
 
     public SoulGain()
     {
-        super(90, "SOULGAIN", 3);
+        super(90, "Soul_Gain", 3);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class SoulGain extends MeleeWeaponEnchant
                 lifeGain = 1.5;
                 chance = .5;
         }
-        if (Math.random() <= chance)
+        if (Math.random() <= /*chance*/ 1)
         {
             attacker.setHealth(Math.min(20, attacker.getHealth() + lifeGain));
         }

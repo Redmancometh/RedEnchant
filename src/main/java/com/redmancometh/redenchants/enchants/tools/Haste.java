@@ -21,7 +21,6 @@ public class Haste extends CustomToolEnchant
     @Override
     public String d(int i)
     {
-        System.out.println("D");
         return super.d(i);
     }
 
@@ -34,7 +33,7 @@ public class Haste extends CustomToolEnchant
     @Override
     public void handleBlockBreak(BlockBreakEvent e, int level)
     {
-        System.out.println("HASTE!");
+        
     }
 
     @Override

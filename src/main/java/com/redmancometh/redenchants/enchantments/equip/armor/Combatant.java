@@ -4,6 +4,8 @@ import org.bukkit.entity.Player;
 
 import com.redmancometh.redenchants.abstraction.composites.CustomArmorEnchant;
 
+import net.md_5.bungee.api.ChatColor;
+
 public class Combatant extends CustomArmorEnchant
 {
 
@@ -16,7 +18,11 @@ public class Combatant extends CustomArmorEnchant
     @Override
     public boolean onStruck(Player attacked, Player attacker, int level)
     {
-        // TODO Auto-generated method stub
+        if (Math.random() > .1 * level)
+        {
+            attacked.setHealth(Math.min(attacked.getHealth() + 1 * level, 20));
+            attacked.sendMessage(ChatColor.GOLD + "[DEBUG]: Combatant heal!");
+        }
         return false;
     }
 

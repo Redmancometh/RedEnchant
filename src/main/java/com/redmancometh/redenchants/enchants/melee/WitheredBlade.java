@@ -11,7 +11,7 @@ public class WitheredBlade extends MeleeWeaponEnchant
 
     public WitheredBlade()
     {
-        super(92, "WITHEREDBLADE", 3);
+        super(92, "Withered_Blade", 3);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class WitheredBlade extends MeleeWeaponEnchant
                 chance = .25;
                 break;
         }
-        if (Math.random() <= chance)
+        if (Math.random() <= /*chance*/1)
         {
             attacked.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, (level * 2) * 20, 1));
         }

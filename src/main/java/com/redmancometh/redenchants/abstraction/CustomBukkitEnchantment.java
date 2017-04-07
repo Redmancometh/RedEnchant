@@ -9,7 +9,7 @@ public class CustomBukkitEnchantment extends CraftEnchantment
 {
 
     protected String name;
-    
+
     public CustomBukkitEnchantment(Enchantment ench, String name)
     {
         super(ench);
@@ -48,7 +48,6 @@ public class CustomBukkitEnchantment extends CraftEnchantment
     @Override
     public String getName()
     {
-        System.out.println(CraftEnchantment.getRaw(this) + " CALLED BUKKIT NAME " + name);
         return name;
     }
 

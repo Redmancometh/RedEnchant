@@ -3,6 +3,7 @@ package com.redmancometh.redenchants.enchantments.equip.armor;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 
+import com.redmancometh.redenchants.RedEnchants;
 import com.redmancometh.redenchants.abstraction.composites.EquippedArmorEnchant;
 
 public class AdamsApple extends EquippedArmorEnchant
@@ -30,22 +31,19 @@ public class AdamsApple extends EquippedArmorEnchant
     @Override
     public void tickItem(Player p, int level)
     {
-        // TODO Auto-generated method stub
-
+        p.setExhaustion(Math.min(p.getExhaustion() + 1, 20));
     }
 
     @Override
     public boolean isEffectApplied(Player p)
     {
-        // TODO Auto-generated method stub
-        return false;
+        return p.hasMetadata(getMetaName());
     }
 
     @Override
     public void removeEquipEffect(Player p)
     {
-        // TODO Auto-generated method stub
-
+        p.removeMetadata(getMetaName(), RedEnchants.getInstance());
     }
 
     @Override

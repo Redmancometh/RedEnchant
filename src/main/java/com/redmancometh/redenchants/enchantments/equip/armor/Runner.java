@@ -48,7 +48,6 @@ public class Runner extends EquippedArmorEnchant
     @Override
     public boolean onStruck(Player attacked, Player attacker, int level)
     {
-        // TODO Auto-generated method stub
         return false;
     }
 

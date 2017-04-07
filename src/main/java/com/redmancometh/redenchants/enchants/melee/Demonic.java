@@ -2,6 +2,8 @@ package com.redmancometh.redenchants.enchants.melee;
 
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import com.google.common.cache.CacheBuilder;
@@ -9,10 +11,12 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.redmancometh.redenchants.abstraction.composites.MeleeWeaponEnchant;
 
+import net.md_5.bungee.api.ChatColor;
+
 public class Demonic extends MeleeWeaponEnchant
 {
 
-    LoadingCache<UUID, Integer> demonicCache = CacheBuilder.newBuilder().build(new CacheLoader<UUID, Integer>()
+    LoadingCache<UUID, Integer> demonicCache = CacheBuilder.newBuilder().expireAfterAccess(5, TimeUnit.SECONDS).build(new CacheLoader<UUID, Integer>()
     {
         public Integer load(UUID key)
         {
@@ -22,7 +26,7 @@ public class Demonic extends MeleeWeaponEnchant
 
     public Demonic()
     {
-        super(88, "DEMONIC", 3);
+        super(88, "Demonic", 3);
     }
 
     @Override
@@ -32,6 +36,7 @@ public class Demonic extends MeleeWeaponEnchant
         {
             int number = demonicCache.get(attacker.getUniqueId());
             demonicCache.put(attacker.getUniqueId(), number + 1);
+            attacker.sendMessage(ChatColor.GOLD + "[DEBUG]: Got a demonic charge!");
         }
         catch (ExecutionException e1)
         {
@@ -42,7 +47,16 @@ public class Demonic extends MeleeWeaponEnchant
     @Override
     public boolean strikePlayer(Player attacker, Player attacked, int level)
     {
-        // TODO Auto-generated method stub
+        try
+        {
+            int number = demonicCache.get(attacker.getUniqueId());
+            demonicCache.put(attacker.getUniqueId(), number + 1);
+            attacker.sendMessage(ChatColor.GOLD + "[DEBUG]: Got a demonic charge!");
+        }
+        catch (ExecutionException e1)
+        {
+            e1.printStackTrace();
+        }
         return false;
     }
 

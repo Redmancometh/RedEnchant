@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Sign;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.LivingEntity;
@@ -14,8 +16,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.enchantment.EnchantItemEvent;
+import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.redmancometh.redenchants.RedEnchants;
@@ -39,12 +42,15 @@ public class EnchantListeners implements Listener
     }
 
     @EventHandler
-    public void onPrepare(EnchantItemEvent e)
+    public void onInteract(PlayerInteractEvent e)
     {
-        e.getEnchantsToAdd().forEach((ench, level) ->
-        {
-            System.out.println(ench + " TO ENCH " + level);
-        });
+
+    }
+
+    @EventHandler
+    public void onInteract(SignChangeEvent e)
+    {
+
     }
 
     @EventHandler
@@ -133,7 +139,11 @@ public class EnchantListeners implements Listener
             {
                 i.getEnchantments().forEach((ench, level) ->
                 {
-                    if (ench instanceof CombatEnchant) ((CombatEnchant) ench).strikeTarget((Player) e.getDamager(), (LivingEntity) e.getEntity(), level);
+                    if (ench instanceof CombatEnchant)
+                    {
+                        ((CombatEnchant) ench).strikeTarget((Player) e.getDamager(), (LivingEntity) e.getEntity(), level);
+                        System.out.println("STRIKE ENCHANT: " + ench);
+                    }
                 });
             }
         }

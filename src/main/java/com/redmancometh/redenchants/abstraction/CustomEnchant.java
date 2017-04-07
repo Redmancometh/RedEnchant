@@ -1,6 +1,10 @@
 package com.redmancometh.redenchants.abstraction;
 
+import java.util.regex.Pattern;
+
 import org.bukkit.inventory.ItemStack;
+
+import com.google.common.base.CaseFormat;
 
 import net.minecraft.server.v1_8_R3.Enchantment;
 import net.minecraft.server.v1_8_R3.EnchantmentSlotType;
@@ -10,13 +14,20 @@ public abstract class CustomEnchant extends Enchantment
 {
     protected String name;
     protected CustomBukkitEnchantment bukkitEnch;
+    protected Pattern regex;
 
     public CustomEnchant(int id, String name, EnchantmentSlotType slotType, int maxLevel)
     {
-        super(id, new MinecraftKey(name.replace(" ", "_")), id, slotType);
+        super(id, new MinecraftKey(name.replace(" ", "_").toLowerCase()), id, slotType);
+        System.out.println("MAKING ENCHANT WITH NAME: " + name.replace(" ", "_"));
         this.bukkitEnch = new CustomBukkitEnchantment(this, name);
         this.name = name;
         super.c(name);
+    }
+
+    public Pattern getRegex()
+    {
+        return Pattern.compile(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, name) + " ");
     }
 
     @Override
@@ -41,13 +52,13 @@ public abstract class CustomEnchant extends Enchantment
     @Override
     public String d(int i)
     {
-        System.out.println("D!");
+        System.out.println("D! " + super.d(i));
+        System.out.println("D STRING RETURN I: " + i);
         return super.d(i);
     }
 
     public org.bukkit.enchantments.Enchantment getBukkitEnchantment()
     {
-        System.out.println("GET BUKKIT ENCH!");
         return this.bukkitEnch;
     }
 

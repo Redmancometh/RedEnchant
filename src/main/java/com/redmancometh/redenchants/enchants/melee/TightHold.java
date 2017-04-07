@@ -11,7 +11,7 @@ public class TightHold extends MeleeWeaponEnchant
 
     public TightHold()
     {
-        super(91, "TIGHTHOLD", 3);
+        super(91, "Tight_Hold", 3);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class TightHold extends MeleeWeaponEnchant
                 slowLevel = 3;
                 chance = .30;
         }
-        if (Math.random() <= chance)
+        if (Math.random() <= /*chance*/ 1)
         {
             attacked.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, slowLevel));
         }

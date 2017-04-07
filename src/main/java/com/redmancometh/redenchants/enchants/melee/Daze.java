@@ -8,9 +8,10 @@ import com.redmancometh.redenchants.abstraction.composites.MeleeWeaponEnchant;
 
 public class Daze extends MeleeWeaponEnchant
 {
+
     public Daze()
     {
-        super(87, "DAZE", 3);
+        super(87, "Daze", 3);
     }
 
     @Override
@@ -22,6 +23,7 @@ public class Daze extends MeleeWeaponEnchant
     @Override
     public boolean strikePlayer(Player attacker, Player attacked, int level)
     {
+        System.out.println("STRIKE DAZE!");
         int nauseaLevel = 1;
         double chance = .15;
         switch (level)
@@ -36,7 +38,7 @@ public class Daze extends MeleeWeaponEnchant
                 nauseaLevel = 3;
                 chance = .35;
         }
-        if (Math.random() <= chance)
+        if (Math.random() <= /*chance*/1)
         {
             attacked.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 7 * 20, nauseaLevel));
         }

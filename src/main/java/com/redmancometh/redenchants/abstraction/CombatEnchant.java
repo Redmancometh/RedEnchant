@@ -9,7 +9,9 @@ public interface CombatEnchant
     {
         if (e instanceof Player)
         {
+            System.out.println("STRIKE PLAYER!");
             strikePlayer(attacker, (Player) e, level);
+            System.out.println("STRUCK PLAYER!");
             return;
         }
     }

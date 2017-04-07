@@ -1,8 +1,6 @@
 package com.redmancometh.redenchants.enchants.melee;
 
 import java.util.Random;
-
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -15,19 +13,13 @@ public class Poisonous extends MeleeWeaponEnchant
 
     public Poisonous()
     {
-        super(89, "POISONOUS", 3);
-    }
-
-    @Override
-    public void strikeTarget(Player attacker, LivingEntity e, int level)
-    {
-
+        super(89, "Poisonous", 3);
     }
 
     @Override
     public boolean strikePlayer(Player attacker, Player attacked, int level)
     {
-        if (Math.random() <= level * .15)
+        if (Math.random() <= /*level * .15*/1)
         {
             int minTime = 5;
             int maxTime = 15;
